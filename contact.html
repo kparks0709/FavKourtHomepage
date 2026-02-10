@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact Form</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Contact Me</h1>
+  <nav>
+    <a href="index.html">Back</a>
+  </nav>
+</header>
+
+<main>
+<form id="form">
+
+<label>Name:</label><br>
+<input type="text" id="name" required><br><br>
+
+<label>Email:</label><br>
+<input type="email" id="email" required><br><br>
+
+<label>Age:</label><br>
+<input type="number" id="age"><br><br>
+
+<label>Reason:</label><br>
+<select id="reason">
+  <option>School</option>
+  <option>Business</option>
+  <option>Other</option>
+</select><br><br>
+
+<label>
+<input type="checkbox" id="updates"> Receive updates
+</label><br><br>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="msg"></p>
+</main>
+
+<footer>
+  <p>© 2026 Kourtney Parks</p>
+</footer>
+
+<script>
+document.getElementById("form").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  localStorage.setItem("name", name.value);
+  localStorage.setItem("email", email.value);
+  localStorage.setItem("age", age.value);
+  localStorage.setItem("reason", reason.value);
+  localStorage.setItem("updates", updates.checked);
+
+  document.getElementById("msg").innerText = "Saved successfully!";
+});
+</script>
+
+</body>
+</html>

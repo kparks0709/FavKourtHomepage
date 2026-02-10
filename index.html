@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kourtney Parks | Home</title>
+
+  <!-- jQuery Mobile base CSS FIRST -->
+  <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+  <!-- ThemeRoller theme SECOND -->
+  <link rel="stylesheet" href="css/kppthefinal.min.css">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="css/jquery.mobile.icons.min.css">
+
+  <!-- custom CSS LAST -->
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- jQuery FIRST, then jQuery Mobile -->
+  <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+
+<body>
+
+<div data-role="page" id="home" data-theme="b">
+
+  <!-- Panel -->
+  <div data-role="panel" id="kpPanel" data-display="overlay" data-theme="b">
+    <h3>Quick Panel</h3>
+    <p>This panel is for quick navigation.</p>
+
+    <a href="index.html" data-ajax="false" class="ui-btn ui-btn-a">Home</a>
+<a href="about.html" data-ajax="false" class="ui-btn ui-btn-a">About</a>
+<a href="favorites.html" data-ajax="false" class="ui-btn ui-btn-a">Favorites</a>
+<a href="favorites-list.html" data-ajax="false" class="ui-btn ui-btn-a">Favorites List</a>
+<a href="contact.html" data-ajax="false" class="ui-btn ui-btn-a">Contact</a>
+
+
+    <a href="#kpPanel" data-rel="close" data-role="button" data-theme="a">Close</a>
+  </div>
+
+  <!-- Header -->
+  <div data-role="header" data-position="fixed" data-theme="b">
+    <h1>Welcome to Kourtney’s World</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="index.html" class="ui-btn-active ui-state-persist" data-ajax="false"data-theme="b">Home</a></li>
+        <li><a href="about.html"data-ajax="false" data-theme="b">About Me</a></li>
+        <li><a href="favorites.html"data-ajax="false" data-theme="b">Favorites</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div role="main" class="ui-content" data-theme="b">
+
+    <a href="#kpPanel" data-role="button" data-theme="b">Open Panel</a>
+
+    <img src="images/mockup.jpg" alt="Website mockup" style="max-width:100%; border-radius:12px; display:block; margin: 10px auto;">
+
+    <p>
+      This website is a school project created to showcase my interests,
+      personality, and skills in site building. Technology is a huge interest of mine,
+      so creating this has been fulfilling.
+    </p>
+
+    <p>
+      I enjoy WWE, traveling and cruising with my family, and building skills in technology.
+      I also enjoy learning and sightseeing. This site reflects my personal style while still
+      being user-friendly.
+    </p>
+
+    <!-- Button grid (all work + all themed) -->
+   <!-- Bottom buttons (FIXED: force full page load, no Ajax) -->
+<div class="ui-grid-a">
+
+  <div class="ui-block-a">
+    <a href="about.html" data-role="button" data-ajax="false" rel="external">About Me</a>
+  </div>
+  <div class="ui-block-b">
+    <a href="favorites.html" data-role="button" data-ajax="false" rel="external">My Favs</a>
+  </div>
+
+  <div class="ui-block-a">
+    <a href="favorites-list.html" data-role="button" data-ajax="false" rel="external">Favorites</a>
+  </div>
+  <div class="ui-block-b">
+    <a href="contact.html" data-role="button" data-ajax="false" rel="external">Contact Form</a>
+  </div>
+
+  <div class="ui-block-a">
+    <a href="http://www.rasmussen.edu" target="_blank" rel="external"
+       data-role="button" data-ajax="false">Rasmussen</a>
+  </div>
+  <div class="ui-block-b">
+    <a href="favorites.html" data-role="button" data-ajax="false" rel="external">See Favorites</a>
+  </div>
+
+</div>
+
+  </div>
+
+  <!-- Footer -->
+  <div data-role="footer" data-position="fixed" data-theme="b">
+    <h4>© 2026 Kourtney Parks</h4>
+  </div>
+
+</div>
+
+</body>
+</html>

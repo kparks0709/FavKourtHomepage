@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Favorites | Kourtney Parks</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+    <h1>Favorites (Web Storage)</h1>
+    <nav>
+        <a href="index.html">Back</a>
+    </nav>
+</header>
+
+<main>
+    <p>
+        Add a favorite item below. Your list will save in your browser using Web Storage (localStorage).
+    </p>
+
+    <div class="kp-card">
+        <form id="favForm">
+            <label for="favInput"><strong>New Favorite:</strong></label><br>
+            <input type="text" id="favInput" placeholder="Example: WWE" required class="kp-input">
+            <button type="submit" class="app-button kp-btn">Add Favorite</button>
+            <button type="button" id="clearFavs" class="app-button kp-btn danger">Clear All</button>
+        </form>
+    </div>
+
+    <div class="kp-card">
+        <h2 style="margin-top:0;">My Saved Favorites</h2>
+        <ul id="favList" class="kp-list"></ul>
+        <p id="emptyMsg" style="margin:0;">No favorites saved yet.</p>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Kourtney Parks</p>
+</footer>
+
+<script>
+    const STORAGE_KEY = "kpFavorites";
+    const form = document.getElementById("favForm");
+    const input = document.getElementById("favInput");
+    const list = document.getElementById("favList");
+    const emptyMsg = document.getElementById("emptyMsg");
+    const clearBtn = document.getElementById("clearFavs");
+
+    function getFavorites() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : [];
+    }
+
+    function saveFavorites(items) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+
+    function render() {
+        const items = getFavorites();
+        list.innerHTML = "";
+
+        if (items.length === 0) {
+            emptyMsg.style.display = "block";
+            return;
+        }
+
+        emptyMsg.style.display = "none";
+
+        items.forEach((item, index) => {
+            const li = document.createElement("li");
+            li.className = "kp-list-item";
+
+            li.innerHTML = `
+                <span>${item}</span>
+                <button type="button" class="kp-x" aria-label="Remove">Remove</button>
+            `;
+
+            li.querySelector("button").addEventListener("click", () => {
+                const updated = getFavorites().filter((_, i) => i !== index);
+                saveFavorites(updated);
+                render();
+            });
+
+            list.appendChild(li);
+        });
+    }
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const value = input.value.trim();
+        if (!value) return;
+
+        const items = getFavorites();
+        items.push(value);
+        saveFavorites(items);
+
+        input.value = "";
+        render();
+    });
+
+    clearBtn.addEventListener("click", () => {
+        localStorage.removeItem(STORAGE_KEY);
+        render();
+    });
+
+    // initial load
+    render();
+</script>
+
+</body>
+</html>
